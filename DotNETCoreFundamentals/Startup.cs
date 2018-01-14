@@ -25,32 +25,12 @@ namespace DotNETCoreFundamentals
         {
             //if (env.IsDevelopment())
             //{
-            //    app.UseDeveloperExceptionPage();
+               app.UseDeveloperExceptionPage();
             //}
-            app.Use(next =>
-            {
-                return async context =>
-                {
-                    logger.LogInformation("Request incomming!");
-                    if (context.Request.Path.StartsWithSegments("/mym"))
-                    {
-                        await context.Response.WriteAsync("Hit!!");
-                        logger.LogInformation("Request handled");
-                    }
-                    else
-                    {
-                         await next(context);
-                        logger.LogInformation("Response outgoing!");
-                    }
-                };
-            });
-            app.UseWelcomePage(new WelcomePageOptions
-            {
-                Path ="/wp"
-            });
 
             app.Run(async (context) =>
             {
+                throw new Exception("Error!!");
                 var greeting = greeter.GetMesageOfTheDay();
                 await context.Response.WriteAsync(greeting);
             });
