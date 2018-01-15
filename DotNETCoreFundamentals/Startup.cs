@@ -23,16 +23,15 @@ namespace DotNETCoreFundamentals
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, IGreeter greeter, ILogger<Startup> logger)
         {
-            //if (env.IsDevelopment())
-            //{
-               app.UseDeveloperExceptionPage();
-            //}
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
 
             app.Run(async (context) =>
             {
-                throw new Exception("Error!!");
                 var greeting = greeter.GetMesageOfTheDay();
-                await context.Response.WriteAsync(greeting);
+                await context.Response.WriteAsync($"greeting: {env.EnvironmentName}");
             });
         }
     }
