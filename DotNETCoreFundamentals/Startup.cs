@@ -31,7 +31,7 @@ namespace DotNETCoreFundamentals
             app.Run(async (context) =>
             {
                 var greeting = greeter.GetMesageOfTheDay();
-                await context.Response.WriteAsync($"greeting: {env.EnvironmentName}");
+                await context.Response.WriteAsync($"greeting: {greeting}");
             });
         }
     }
