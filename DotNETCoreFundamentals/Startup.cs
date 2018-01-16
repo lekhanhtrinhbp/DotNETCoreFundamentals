@@ -46,7 +46,6 @@ namespace DotNETCoreFundamentals
             // /Home/Index
             routeBuilder.MapRoute("Default",
                "{controller=Home}/{action=Index}/{id?}"
-
                 );
         }
     }
