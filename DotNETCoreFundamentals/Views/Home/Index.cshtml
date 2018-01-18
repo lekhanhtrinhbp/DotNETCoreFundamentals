@@ -1,10 +1,21 @@
-﻿@model DotNETCoreFundamentals.Models.Restaurant
+﻿@model DotNETCoreFundamentals.ViewModels.HomeIndexViewModel
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
 </head>
 <body>
-    <h1>@Model.Name</h1>
-    <div>This ID is value @Model.Id</div>
+    <table>
+        <h1>@Model.CurrentMessage</h1>
+        @foreach (var item in Model.Restaurants)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+            </tr>
+        }
+
+    </table>
+
+
 </body>
 </html>
