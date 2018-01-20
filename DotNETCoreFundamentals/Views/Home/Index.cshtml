@@ -6,16 +6,16 @@
 <body>
     <table>
         <h1>@Model.CurrentMessage</h1>
-        @foreach (var item in Model.Restaurants)
+        @foreach (var restaurant in Model.Restaurants)
         {
             <tr>
-                <td>@item.Id</td>
-                <td>@item.Name</td>
+                <td>@restaurant.Id</td>
+                <td>@restaurant.Name</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@restaurant.Id">More</a>
+                </td>
             </tr>
         }
-
     </table>
-
-
 </body>
 </html>
