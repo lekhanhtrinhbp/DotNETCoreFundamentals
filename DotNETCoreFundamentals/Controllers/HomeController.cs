@@ -41,15 +41,24 @@ namespace DotNETCoreFundamentals.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Create(RestaurantEditViewModel restaurant)
         {
-            var newRestaurant = new Restaurant();
-            newRestaurant.Name = restaurant.Name;
-            newRestaurant.Cuisine = restaurant.Cuisine;
+            if (ModelState.IsValid)
+            {
+                var newRestaurant = new Restaurant();
+                newRestaurant.Name = restaurant.Name;
+                newRestaurant.Cuisine = restaurant.Cuisine;
 
-            newRestaurant = _restaurantData.Add(newRestaurant);
+                newRestaurant = _restaurantData.Add(newRestaurant);
 
-            return RedirectToAction(nameof(Details), new { id = newRestaurant.Id });
+                return RedirectToAction(nameof(Details), new { id = newRestaurant.Id });
+            }
+            else
+            {
+                return View();
+            }
+            
         }
     }
 }
