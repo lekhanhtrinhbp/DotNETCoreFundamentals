@@ -10,5 +10,6 @@ namespace DotNETCoreFundamentals.Services
     {
         IEnumerable<Restaurant> GetAll();
         Restaurant Get(int id);
+        Restaurant Add(Restaurant newRestaurant);
     }
 }
