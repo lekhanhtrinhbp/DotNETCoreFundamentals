@@ -14,8 +14,8 @@ namespace DotNETCoreFundamentals.Services
             _restaurants = new List<Restaurant>
             {
                 new Restaurant{ Id = 1, Name = "Scott's  Pizza Place"},
-                new Restaurant{ Id = 2, Name = "MacDonal"},
-                new Restaurant{ Id = 3, Name = "Papa Chicken"}
+                new Restaurant{ Id = 2, Name = "Wrap And Roll"},
+                new Restaurant{ Id = 3, Name = "Papa's Chicken"}
             };
         }
         public IEnumerable<Restaurant> GetAll()
